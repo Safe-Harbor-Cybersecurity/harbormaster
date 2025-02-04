@@ -1,143 +1,150 @@
-# harbormaster
-Light weight API based AI Model Security tool
+# Harbormaster
 
-Project Structure
-LLMGuardian follows a modular and secure architecture designed to provide comprehensive protection for LLM applications. Below is the detailed project structure with explanations for each component:
+Harbormaster is a lightweight, API-based AI model security tool designed for deployment in Hugging Face environments. It provides comprehensive protection for AI models by addressing OWASP vulnerabilities and implementing robust security measures.
 
-Directory Structure
-```
-LLMGuardian/
-├── .github/                      # GitHub specific configurations
-│   ├── workflows/                # GitHub Actions workflows
-│   ├── CODEOWNERS               # Repository ownership rules
-│   ├── ISSUE_TEMPLATE/          # Issue reporting templates
-│   └── PULL_REQUEST_TEMPLATE.md # PR guidelines
-├── .circleci/                   # config files for using CircleCI https://circleci.com/ 
-│
-├── src/                         # Source code
-│   └── llmguardian/            # Main package directory
-│       ├── cli/                # Command-line interface
-│       ├── dashboard/          # Streamlit dashboard
-│       ├── core/               # Core functionality
-│       ├── scanners/           # Security scanning modules
-│       ├── defenders/          # Defense mechanisms
-│       ├── monitors/           # Monitoring components
-│       ├── api/                # API integration
-|       ├── vectors/            # Embeddings protection / supply chain vulnerabilities
-|       ├── data/               # Sensive data exposure / data poisoning
-|       ├── agency/             # Excessive agency protection
-│       └── utils/              # Utility functions
-│
-├── tests/                      # Test suite
-│   ├── unit/                  # Unit tests
-│   ├── integration/           # Integration tests
-│   └── security/              # Security-specific tests
-│
-├── docs/                      # Documentation
-├── scripts/                   # Utility scripts
-├── requirements/              # Dependencies
-├── docker/                    # Docker configurations
-└── config/                    # Various config files
-Component Details
-Security Components
-Scanners (src/llmguardian/scanners/)
+## Project Overview
 
-Prompt injection detection
-Data leakage scanning
-Model security validation
-Output validation checks
-Defenders (src/llmguardian/defenders/)
+Harbormaster builds upon the security foundations established by LLMGuardian, adapting them for seamless integration with Hugging Face's infrastructure. The project aims to democratize AI security by making enterprise-grade protection accessible to the broader AI community.
 
-Input sanitization
-Output filtering
-Rate limiting
-Token validation
-Monitors (src/llmguardian/monitors/)
+## Key Features
 
-Real-time usage tracking
-Threat detection
-Anomaly monitoring
-Vectors (src/llmguardian/vectors/)
+- **Model Security Validation**: Comprehensive scanning and validation of AI models
+- **Threat Detection**: Real-time monitoring and detection of potential security threats
+- **Data Protection**: Safeguards against sensitive data exposure and poisoning attempts
+- **Vector Store Security**: Protection for embedding operations and supply chain vulnerabilities
+- **Agency Control**: Management of model permissions and execution boundaries
+- **Hugging Face Integration**: Native support for Hugging Face's model ecosystem
 
-Embedding weaknesses
-Supply chain vulnerabilities
-Montior vector stores
-Data (src/llmguardian/data/)
-
-Sensitive information disclosure
-Protection from data poisoning
-Data sanitizing
-Agency (src/llmguardian/agency/)
-
-Permission management
-Scope limitation
-Safe execution
-Core Components
-CLI (src/llmguardian/cli/)
-
-Command-line interface
-Interactive tools
-Configuration management
-API (src/llmguardian/api/)
-
-RESTful endpoints
-Middleware
-Integration interfaces
-Core (src/llmguardian/core/)
-
-Configuration management
-Logging setup
-Core functionality
-Testing & Quality Assurance
-Tests (tests/)
-Unit tests for individual components
-Integration tests for system functionality
-Security-specific test cases
-Vulnerability testing
-Documentation & Support
-Documentation (docs/)
-API documentation
-Implementation guides
-Security best practices
-Usage examples
-Docker (docker/)
-Containerization support
-Development environment
-Production deployment
-Development Tools
-Scripts (scripts/)
-Setup utilities
-Development tools
-Security checking scripts
-Dashboard
-Dashboard(src/llmguardian/dashboard/)
-Streamlit app
-Visualization
-Monitoring and control
-Key Files
-pyproject.toml: Project metadata and dependencies
-setup.py: Package setup configuration
-requirements/*.txt: Environment-specific dependencies
-.pre-commit-config.yaml: Code quality hooks
-CONTRIBUTING.md: Contribution guidelines
-LICENSE: MIT license terms
-Design Principles
-The structure follows these key principles:
-
-Modularity: Each component is self-contained and independently maintainable
-Security-First: Security considerations are built into the architecture
-Scalability: Easy to extend and add new security features
-Testability: Comprehensive test coverage and security validation
-Usability: Clear organization and documentation
+## Project Structure
 
 ```
-@misc{lightweightapibasedaimodelsecuritytool,
-      title={Harbormaster}, 
+harbormaster/
+├── .github/                    # GitHub specific configurations
+│   ├── workflows/             # GitHub Actions workflows
+│   ├── CODEOWNERS            # Repository ownership rules
+│   └── ISSUE_TEMPLATE/       # Issue reporting templates
+│
+├── src/                       # Source code
+│   └── harbormaster/         # Main package directory
+│       ├── api/              # API endpoints and integration
+│       │   ├── routes/       # API route definitions
+│       │   └── middleware/   # API middleware components
+│       │
+│       ├── core/             # Core functionality
+│       │   ├── config/       # Configuration management
+│       │   ├── logging/      # Logging system
+│       │   └── utils/        # Utility functions
+│       │
+│       ├── security/         # Security components
+│       │   ├── scanners/     # Security scanning modules
+│       │   ├── defenders/    # Defense mechanisms
+│       │   └── monitors/     # Security monitoring
+│       │
+│       ├── huggingface/      # Hugging Face specific integration
+│       │   ├── adapters/     # Model adapters
+│       │   └── endpoints/    # Hugging Face endpoints
+│       │
+│       ├── dashboard/        # Web interface
+│       │   ├── components/   # UI components
+│       │   └── pages/        # Dashboard pages
+│       │
+│       └── cli/              # Command-line interface
+│
+├── tests/                     # Test suite
+│   ├── unit/                # Unit tests
+│   ├── integration/         # Integration tests
+│   └── security/           # Security-specific tests
+│
+├── docs/                     # Documentation
+│   ├── api/                # API documentation
+│   ├── guides/             # User guides
+│   └── security/          # Security documentation
+│
+├── examples/                 # Example implementations
+├── scripts/                 # Utility scripts
+└── docker/                  # Docker configurations
+
+```
+
+## Security Components
+
+### Scanners
+- Prompt injection detection
+- Data leakage prevention
+- Model validation checks
+- Output sanitization
+
+### Defenders
+- Input sanitization
+- Rate limiting
+- Access control
+- Token validation
+
+### Monitors
+- Usage tracking
+- Threat detection
+- Performance monitoring
+- Security logging
+
+## Getting Started
+
+### Prerequisites
+- Python 3.8+
+- Hugging Face account
+- Docker (optional)
+
+### Installation
+
+```bash
+pip install harbormaster
+```
+
+### Quick Start
+
+```python
+from harbormaster import HarborMaster
+
+# Initialize Harbormaster
+harbor = HarborMaster(api_key="your-api-key")
+
+# Secure your model
+secured_model = harbor.secure_model("your-model-id")
+
+# Make secure predictions
+result = secured_model.predict("Your input here")
+```
+
+## Documentation
+
+Comprehensive documentation is available at [docs/](docs/). This includes:
+- API Reference
+- Security Best Practices
+- Implementation Guides
+- Example Use Cases
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+## Security
+
+For security concerns, please review our [Security Policy](SECURITY.md). Report vulnerabilities to security@harbormaster.dev
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+```bibtex
+@misc{harbormaster,
+      title={Harbormaster: Lightweight API-based AI Model Security}, 
       author={Safe-Harbor-Cybersecurity, DeWitt Gibson},
       year={2025},
-      eprint={null},
-      archivePrefix={null},
-      primaryClass={null},
-      url={[https://github.com/Safe-Harbor-Cybersecurity/harbormaster](https://github.com/Safe-Harbor-Cybersecurity/harbormaster)}, 
+      url={https://github.com/Safe-Harbor-Cybersecurity/harbormaster}
 }
 ```
+
+## Acknowledgments
+
+This project builds upon the security foundations established by LLMGuardian, adapting and extending them for the Hugging Face ecosystem.
