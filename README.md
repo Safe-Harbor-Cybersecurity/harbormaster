@@ -6,6 +6,14 @@ Harbormaster is a lightweight, API-based AI model security tool designed for dep
 
 Harbormaster builds upon the security foundations established by LLMGuardian, adapting them for seamless integration with Hugging Face's infrastructure. The project aims to democratize AI security by making enterprise-grade protection accessible to the broader AI community.
 
+## Built from LLMGuardian 
+
+[CLICK HERE FOR THE FULL PROJECT](https://github.com/Finoptimize/LLMGuardian)
+
+Comprehensive Large Language Model (LLM) and Artificial Intelligence (AI) protection toolset aligned to addressing OWASP idenitfied top 10 vulnerabilities
+
+Author: [DeWitt Gibson https://www.linkedin.com/in/dewitt-gibson/](https://www.linkedin.com/in/dewitt-gibson)
+
 ## Key Features
 
 - **Model Security Validation**: Comprehensive scanning and validation of AI models
