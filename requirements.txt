@@ -1,0 +1,36 @@
+# Web Framework
+fastapi>=0.68.0
+uvicorn>=0.15.0
+starlette>=0.14.0
+
+# Data Validation
+pydantic>=1.8.0
+
+# Machine Learning
+transformers>=4.0.0
+torch>=1.9.0
+huggingface-hub>=0.5.0
+
+# Security
+pyjwt>=2.3.0
+python-dotenv>=0.19.0
+
+# CLI and Dashboard
+click>=8.0.0
+streamlit>=1.0.0
+
+# HTTP Client
+requests>=2.26.0
+
+# Utilities
+tenacity>=8.0.0
+python-json-logger>=2.0.0
+
+# Development Dependencies
+pytest>=6.0
+pytest-asyncio>=0.16.0
+pytest-cov>=2.12
+black>=21.5b2
+isort>=5.9.3
+mypy>=0.910
+flake8>=3.9.2

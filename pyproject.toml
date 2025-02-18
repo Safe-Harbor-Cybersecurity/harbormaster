@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "harbormaster"
+version = "1.0.0"
+description = "API-based AI model security tool for Hugging Face models"
+readme = "README.md"
+authors = [
+    { name = "DeWitt Gibson", email = "dewitt@safeharbor.dev" }
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+keywords = ["security", "AI", "machine-learning", "huggingface", "model-protection"]
+dependencies = [
+    "fastapi>=0.68.0",
+    "uvicorn>=0.15.0",
+    "pydantic>=1.8.0",
+    "transformers>=4.0.0",
+    "torch>=1.9.0",
+    "huggingface-hub>=0.5.0",
+    "python-dotenv>=0.19.0",
+    "streamlit>=1.0.0",
+    "click>=8.0.0",
+    "requests>=2.26.0",
+    "tenacity>=8.0.0",
+    "pyjwt>=2.3.0"
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-asyncio>=0.16.0",
+    "pytest-cov>=2.12",
+    "black>=21.5b2",
+    "isort>=5.9.3",
+    "mypy>=0.910",
+    "flake8>=3.9.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/Safe-Harbor-Cybersecurity/harbormaster"
+Documentation = "https://harbormaster.readthedocs.io"
+Repository = "https://github.com/Safe-Harbor-Cybersecurity/harbormaster.git"
+"Bug Tracker" = "https://github.com/Safe-Harbor-Cybersecurity/harbormaster/issues"
+
+[project.scripts]
+harbormaster = "harbormaster.cli.commands:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/harbormaster"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --cov=harbormaster"
+testpaths = [
+    "tests",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
